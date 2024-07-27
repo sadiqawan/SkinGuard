@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:test_firebase/signup_screen/signup_controller.dart';
+import 'package:test_firebase/ui/auth/signup_view/signup_controller.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});

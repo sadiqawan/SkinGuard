@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:test_firebase/signup_screen/login_screen.dart';
+
+import '../login_view/login_screen.dart';
+
 
 class SignupScreenController extends GetxController {
 
