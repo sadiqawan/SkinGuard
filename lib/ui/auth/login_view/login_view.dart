@@ -6,6 +6,7 @@ import 'package:test_firebase/constants/const_colors.dart';
 import '../../../componants/custom_text_feild.dart';
 import '../../../constants/const_text_style.dart';
 import '../auth_controller.dart';
+import '../forget_view/forget_password_view.dart';
 import '../signup_view/signup_view.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -63,7 +64,7 @@ class LoginScreen extends StatelessWidget {
                       child: InkWell(
                         child: Text('Forgot Password?', style: kSmallTitle1),
                         onTap: () {
-                          // Get.to(() => const FogotPasswordScreen());
+                          Get.to(() => const ForgetPasswordScreen());
                         },
                       ),
                     ),
@@ -72,15 +73,26 @@ class LoginScreen extends StatelessWidget {
                       child: Obx(() {
                         return authController.isLoading.value
                             ? Center(
-                            child: CircularProgressIndicator(
-                              color: kPriemryColor,
-                            ))
+                                child: CircularProgressIndicator(
+                                color: kPriemryColor,
+                              ))
                             : CustomButton(
-                            title: 'Login',
-                            height: 48.h,
-                            onTap: () {
-                              authController.login();
-                            });
+                                title: 'Login',
+                                height: 48.h,
+                                onTap: () {
+                                  if (authController.emailC.text.isEmpty ||
+                                      authController.passC.text.isEmpty) {
+                                    Get.snackbar(
+                                      'Failed',
+                                      'Error: Enter valid Credentials',
+                                      snackPosition: SnackPosition.TOP,
+                                      backgroundColor:
+                                          Colors.red.withOpacity(.3),
+                                    );
+                                  } else {
+                                    authController.login();
+                                  }
+                                });
                       }),
                     ),
                     Row(

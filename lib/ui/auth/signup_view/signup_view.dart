@@ -90,7 +90,19 @@ class SignupScreen extends StatelessWidget {
                                 : CustomButton(
                                     title: 'SignUp',
                                     onTap: () {
-                                      authController.signup();
+                                      if (authController.nameC.text.isEmpty ||
+                                          authController.emailC.text.isEmpty ||
+                                          authController.passC.text.isEmpty) {
+                                        Get.snackbar(
+                                          'Failed',
+                                          'Error: Enter valid Credentials',
+                                          snackPosition: SnackPosition.TOP,
+                                          backgroundColor:
+                                              Colors.red.withOpacity(.3),
+                                        );
+                                      } else {
+                                        authController.signup();
+                                      }
                                     },
                                   ),
                           )),

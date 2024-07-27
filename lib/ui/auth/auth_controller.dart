@@ -4,8 +4,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:test_firebase/ui/buttom_nev_views/home_view.dart';
+import 'package:test_firebase/ui/bottom_nev_views/bottom_navbar_view.dart';
 
+
+import '../bottom_nev_views/home_view/home_view.dart';
 import 'login_view/login_view.dart';
 
 class AuthController extends GetxController{
@@ -75,7 +77,7 @@ class AuthController extends GetxController{
         backgroundColor: Colors.green.withOpacity(.3),
       );
       isLoading.value = false;
-      Get.offAll(() => const HomeScreen());
+      Get.offAll(() => const BottomNavbarScreen());
       final SharedPreferences pref = await SharedPreferences.getInstance();
       await pref.setBool('is_login', true);
     } catch (e) {
@@ -94,6 +96,7 @@ class AuthController extends GetxController{
   Future<void> sendPasswordResetEmail() async {
     FirebaseAuth auth = FirebaseAuth.instance;
     try {
+      isLoading.value = true;
       await auth.sendPasswordResetEmail(email: forgetC.text.trim());
       Get.snackbar(
         "Success",
@@ -101,6 +104,9 @@ class AuthController extends GetxController{
         snackPosition: SnackPosition.TOP,
         backgroundColor: Colors.black,
       );
+      isLoading.value = false;
+      Get.offAll(const LoginScreen());
+
     } catch (e) {
       print('Error: $e');
       Get.snackbar(
@@ -109,6 +115,8 @@ class AuthController extends GetxController{
         snackPosition: SnackPosition.TOP,
         backgroundColor: Colors.red,
       );
+      isLoading.value = false;
+
     }
   }
 }
