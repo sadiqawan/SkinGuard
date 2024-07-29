@@ -25,17 +25,15 @@ class BottomNavbarScreen extends StatelessWidget {
     return Obx(() => Scaffold(
           body: screens[appController.currentIndex.value],
           bottomNavigationBar: Padding(
-            padding:  EdgeInsets.only(left: 7.w,right: 7.w,bottom: 10.h),
+            padding: EdgeInsets.only(left: 7.w, right: 7.w, bottom: 10.h),
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(13),
                 color: kPriemryColor,
               ),
               child: SalomonBottomBar(
-              
-                  duration: const Duration(milliseconds: 900),
+                duration: const Duration(milliseconds: 900),
                 selectedColorOpacity: .3,
-
                 selectedItemColor: Colors.black,
                 unselectedItemColor: Colors.white,
                 onTap: (index) {
@@ -54,15 +52,13 @@ class BottomNavbarScreen extends StatelessWidget {
                     icon: const Icon(
                       Icons.batch_prediction_outlined,
                       size: 27,
-
                     ),
-                    title: const Text("predict"),
+                    title: const Text("Predict"),
                   ),
                   SalomonBottomBarItem(
                     icon: const Icon(
                       Icons.search_outlined,
                       size: 27,
-
                     ),
                     title: const Text("Search"),
                   ),
@@ -70,7 +66,6 @@ class BottomNavbarScreen extends StatelessWidget {
                     icon: const Icon(
                       Icons.person_outline,
                       size: 27,
-
                     ),
                     title: const Text("Profile"),
                   ),
@@ -78,6 +73,6 @@ class BottomNavbarScreen extends StatelessWidget {
               ),
             ),
           ),
-        ));
+        ),);
   }
 }
