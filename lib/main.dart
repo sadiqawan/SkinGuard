@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:test_firebase/ui/auth/login_view/login_view.dart';
-
 import 'firebase_options.dart';
 
 void main() async {
@@ -14,15 +13,14 @@ void main() async {
   );
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+  // Image classification using ML.
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(360, 690),
+      designSize: const Size(360, 690),
       splitScreenMode: true,
       minTextAdapt: true,
       builder: (BuildContext context, Widget? child) {
@@ -30,9 +28,9 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Image Classification',
           theme: ThemeData(
-            primarySwatch: Colors.blue,
+            primarySwatch: Colors.cyan,
           ),
-          home: LoginScreen(),
+          home: const LoginScreen(),
         );
       },
     );

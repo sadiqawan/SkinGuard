@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:test_firebase/componants/custom_back_button.dart';
 import 'package:test_firebase/constants/const_colors.dart';
 import 'package:test_firebase/constants/const_text_style.dart';
 
