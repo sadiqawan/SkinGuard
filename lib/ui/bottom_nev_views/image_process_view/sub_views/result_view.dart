@@ -20,6 +20,7 @@ class ResultScreen extends StatelessWidget {
 Widget _screen(BuildContext context) {
   ImageProcessController controller = Get.put(ImageProcessController());
   return Scaffold(
+
     body: Padding(
       padding: EdgeInsets.only(top: 40.h, right: 16.w, left: 16.w),
       child: Column(
