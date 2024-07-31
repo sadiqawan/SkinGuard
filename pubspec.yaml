@@ -48,6 +48,9 @@ dependencies:
   salomon_bottom_bar: ^3.3.2
   screenshot: ^3.0.0
   image_gallery_saver: ^2.0.3
+  provider: ^6.1.2
+  tflite_flutter: ^0.10.4
+  image: ^4.2.0
 
 
 

@@ -1,9 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:test_firebase/ui/auth/login_view/login_view.dart';
+import 'package:test_firebase/test.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -13,6 +12,7 @@ void main() async {
   );
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   // Image classification using ML.
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.cyan,
           ),
-          home: const LoginScreen(),
+          home: const ModelTestClass(),
         );
       },
     );
