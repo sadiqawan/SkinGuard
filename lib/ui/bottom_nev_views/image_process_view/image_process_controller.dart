@@ -6,6 +6,10 @@ import 'package:screenshot/screenshot.dart';
 class ImageProcessController extends GetxController {
   final ScreenshotController screenshotController = ScreenshotController();
 
+
+
+
+  /// Download receipt
   Future<void> downloadResultImg() async {
     try {
       final capturedImage = await screenshotController.capture();
@@ -44,4 +48,14 @@ class ImageProcessController extends GetxController {
       );
     }
   }
+
+  /// Asked form AI
+  Future<void>askedFromAi()async {}
+
+
+  /// Image Process
+  Future<void>imagePrecess()async {}
+
+
+
 }

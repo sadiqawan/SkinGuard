@@ -7,7 +7,13 @@ class SearchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SearchViewController searchViewController = Get.put(SearchViewController());
-    return const Placeholder();
+    return _screen(context);
   }
+}
+
+
+Widget _screen(BuildContext context){
+  SearchViewController searchViewController = Get.put(SearchViewController());
+
+  return Scaffold();
 }

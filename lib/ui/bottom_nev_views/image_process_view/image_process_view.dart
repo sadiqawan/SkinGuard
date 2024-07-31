@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:test_firebase/componants/custom_button.dart';
+import 'package:test_firebase/constants/const_colors.dart';
+import 'package:test_firebase/constants/const_text_style.dart';
 import 'package:test_firebase/ui/bottom_nev_views/image_process_view/sub_views/result_view.dart';
 import 'image_process_controller.dart';
 
@@ -20,6 +21,7 @@ Widget _screen(BuildContext context) {
       Get.put(ImageProcessController());
 
   return Scaffold(
+    floatingActionButton: _floatingActionButton(),
     body: Padding(
       padding: EdgeInsets.only(top: 50.h, right: 16.w, left: 16.w),
       child: Column(
@@ -28,9 +30,9 @@ Widget _screen(BuildContext context) {
             height: 300.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-                image: const DecorationImage(
-                    image: AssetImage('assets/images/scan_me.png'),
-                    fit: BoxFit.fill),
+              image: const DecorationImage(
+                  image: AssetImage('assets/images/scan_me.png'),
+                  fit: BoxFit.fill),
             ),
           ),
           Padding(
@@ -38,17 +40,49 @@ Widget _screen(BuildContext context) {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Flexible(child: CustomButton(title: 'Select Camera', onTap: (){})),
-                SizedBox(width: 5.w,),
-                Flexible(child: CustomButton(title: 'Select Gallery', onTap: (){}))
+                Flexible(
+                    child: CustomButton(title: 'Select Camera', onTap: () {})),
+                SizedBox(
+                  width: 5.w,
+                ),
+                Flexible(
+                    child: CustomButton(title: 'Select Gallery', onTap: () {}))
               ],
             ),
           ),
-          CustomButton(title: 'Process Me', onTap: (){
-            Get.to(()=> ResultScreen());
-          }),
-
+          CustomButton(
+              title: 'Process Me',
+              onTap: () {
+                imageProcessController.imagePrecess();
+                Get.to(() => const ResultScreen());
+              }),
         ],
+      ),
+    ),
+  );
+}
+
+
+
+Widget _floatingActionButton() {
+  ImageProcessController imageProcessController =
+      Get.put(ImageProcessController());
+  return InkWell(
+    onTap: () {
+      imageProcessController.askedFromAi();
+    },
+    child: Container(
+      width: 150.w,
+      height: 50.h,
+      decoration: BoxDecoration(
+          // color: Colors.black,
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(color: kPriemryColor)),
+      child: Center(
+        child: Text(
+          'Asked From AI⚡',
+          style: kSmallTitle1.copyWith(fontWeight: FontWeight.bold),
+        ),
       ),
     ),
   );
