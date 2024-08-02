@@ -22,10 +22,7 @@ class CustomBackButton extends StatelessWidget {
         onTap: () {
           Get.back();
         },
-        child: Icon(
-          Icons.arrow_back_ios_new_outlined,
-          color: kWhit,
-        ),
+        child: Icon(Icons.arrow_back_ios_new_outlined, color: kBlack),
       ),
     );
   }

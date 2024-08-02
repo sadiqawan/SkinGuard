@@ -6,6 +6,7 @@ import 'package:test_firebase/constants/const_colors.dart';
 import 'package:test_firebase/constants/const_text_style.dart';
 import 'package:test_firebase/ui/bottom_nev_views/image_process_view/image_process_controller.dart';
 
+import '../../../../componants/custom_back_button.dart';
 import '../../../../componants/custom_button.dart';
 
 class ResultScreen extends StatelessWidget {
@@ -25,24 +26,7 @@ Widget _screen(BuildContext context) {
       padding: EdgeInsets.only(top: 40.h, right: 16.w, left: 16.w),
       child: Column(
         children: [
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: CircleAvatar(
-              backgroundColor: kPriemryColor,
-              maxRadius: 22,
-              child: Center(
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.black,
-                  ),
-                  onPressed: () {
-                    Get.back();
-                  },
-                ),
-              ),
-            ),
-          ),
+          const CustomBackButton(),
           SizedBox(
             height: 4.h,
           ),
