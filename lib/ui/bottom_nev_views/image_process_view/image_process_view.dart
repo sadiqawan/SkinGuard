@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:test_firebase/componants/custom_button.dart';
 import 'package:test_firebase/constants/const_colors.dart';
 import 'package:test_firebase/constants/const_text_style.dart';
-import 'package:test_firebase/ui/bottom_nev_views/image_process_view/sub_views/result_view.dart';
+
 import 'image_process_controller.dart';
 
 class ImageProcessScreen extends StatelessWidget {
@@ -17,11 +17,10 @@ class ImageProcessScreen extends StatelessWidget {
 }
 
 Widget _screen(BuildContext context) {
-  ImageProcessController imageProcessController =
-      Get.put(ImageProcessController());
+  final ImageProcessController imageProcessController = Get.put(ImageProcessController());
 
   return Scaffold(
-    floatingActionButton: _floatingActionButton(),
+    floatingActionButton: _floatingActionButton(imageProcessController),
     body: Padding(
       padding: EdgeInsets.only(top: 50.h, right: 16.w, left: 16.w),
       child: Column(
@@ -41,20 +40,30 @@ Widget _screen(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Flexible(
-                    child: CustomButton(title: 'Select Camera', onTap: () {})),
+                    child: CustomButton(
+                        title: 'Select Camera',
+                        onTap: () {
+                          // imageProcessController.pickImage(ImageSource.camera);
+                        })),
                 SizedBox(
                   width: 5.w,
                 ),
                 Flexible(
-                    child: CustomButton(title: 'Select Gallery', onTap: () {}))
+                    child: CustomButton(
+                        title: 'Select Gallery',
+                        onTap: () {
+                          // imageProcessController.pickImage(ImageSource.gallery);
+                        }
+                        ),
+                ),
               ],
             ),
           ),
           CustomButton(
               title: 'Process Me',
               onTap: () {
-                imageProcessController.imagePrecess();
-                Get.to(() => const ResultScreen());
+                // imageProcessController.getDiseaseStatus();
+                // Get.to(() => const ResultScreen());
               }),
         ],
       ),
@@ -62,11 +71,7 @@ Widget _screen(BuildContext context) {
   );
 }
 
-
-
-Widget _floatingActionButton() {
-  ImageProcessController imageProcessController =
-      Get.put(ImageProcessController());
+Widget _floatingActionButton(ImageProcessController imageProcessController) {
   return InkWell(
     onTap: () {
       imageProcessController.askedFromAi();
@@ -75,7 +80,7 @@ Widget _floatingActionButton() {
       width: 150.w,
       height: 50.h,
       decoration: BoxDecoration(
-          // color: Colors.black,
+        // color: Colors.black,
           borderRadius: BorderRadius.circular(15),
           border: Border.all(color: kPriemryColor)),
       child: Center(
