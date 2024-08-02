@@ -104,7 +104,14 @@ Widget _screen(BuildContext context) {
 
               ],
             ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Skin Awareness',style: kSubTitle2B,), Text('SeeAll',style: kSubTitle2B.copyWith(color: kPriemryColor),)
+            ],
           )
+
         ],
       ),
     ),
