@@ -426,6 +426,9 @@ class Classifier {
     if (checkImageIsPng(path)) {
       path = convertPngToJpg(path, path.replaceAll(".png", ".jpg"));
     }
+
+
+
     imageFile = File(path);
     int noOfClasses = 11;
 
