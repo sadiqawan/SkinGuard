@@ -102,7 +102,7 @@ class AuthController extends GetxController{
         "Success",
         'Password reset email sent!${forgetC.text.trim()}',
         snackPosition: SnackPosition.TOP,
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.green.withOpacity(.3),
       );
       isLoading.value = false;
       Get.offAll(const LoginScreen());
@@ -113,7 +113,7 @@ class AuthController extends GetxController{
         "Failed",
         'Failed to send password reset email',
         snackPosition: SnackPosition.TOP,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.red.withOpacity(.3),
       );
       isLoading.value = false;
 
